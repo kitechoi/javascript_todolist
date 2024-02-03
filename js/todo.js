@@ -80,7 +80,7 @@ toDoForm.addEventListener("submit", handleToDoSubmit);
 
 const savedToDos = localStorage.getItem(TODOS_KEY);
 console.log(savedToDos);
-todoLessCheck();
+
 if (savedToDos !== null) {
     const parsedToDos = JSON.parse(savedToDos);
     toDos = parsedToDos;    // 새로고침시에 배열이 초기화되므로, toDos를 ToDos항목들로 초기화(재할당해야 해서 let형이어야.)
@@ -93,6 +93,8 @@ if (savedToDos !== null) {
     // 위 동작을 아래처럼 한 줄에도 표현 가능. 함수 포함하여.
     //parsedToDos.forEach((listOfItem) => console.log("this is the turn of", listOfItem));
 }
+todoLessCheck();     // 투두가 하나도 없으면 문구 표시
+
 // if (savedToDos === null || savedToDos === '[]') {
 //     const todoLess = document.querySelector("#todoLess");
 //     todoLess.classList.remove("hidden");

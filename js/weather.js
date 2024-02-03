@@ -19,7 +19,7 @@ function onGeoOk(position){
 }
 
 function onGeoError() {
-    alert("ㅠㅠ fail");
+    alert("ㅠ_ㅠ fail to get your geolocation");
 }
 
 navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
