@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <h2 id="clock">00:00</h2>
+
     <!-- form은 기본적으로 submit되면서 새로고침 등 지 나름의 동작을 해서 js에서 event.preventDefault -->
     <form id="login-form" class="hidden">
         <input 
@@ -16,23 +18,30 @@
         placeholder="What is your name?" />
         <button>Log in</button>
     </form>
-  
 
-    <h2 id="clock">00:00</h2>
+    <!-- Hello <성명> -------------------------------------->
     <h1 class="hidden" id="greeting"></h1>
+    
+    <!-- TODO가 하나도 없으면 문구 표시------------------- -->
+    <h3 class="hidden" id="todoLess">아직 TODO를 작성하지 않으셨네요 !<br>🠓🠓🠓  </h3>
+
+
+    <!-- TODO작성란 -------------------------치---------------->
     <form id="todo-form">
         <input type="text" placeholder="Write a TO DO and Press Enter" required>
     </form>
+    
     <ul id="todo-list">
         <!-- <li></li> -->
     </ul>
 
-
+    <!-- 인용구------------------------------------------- -->
     <div id="quote">
         <span></span>
+        <br>
         <span></span>
     </div>
-
+    <!--날씨&위치 정보 --------------------------------- -->
 
     <div id = "weather">
         <span></span>

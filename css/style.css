@@ -1,7 +1,91 @@
+/* style.css */
+
 .hidden {
     display: none;
 }
 
 body {
-    font-family:'Times New Roman', Times, serif;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f0f0f0;
+}
+#clock {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 100px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+input[type="text"] {
+    width: 30%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #d57ed7;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #a966ab;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    display: inline-block;
+}
+
+li {
+    display: flex;
+    /* justify-content: center; 요소들을 수평으로 가운데 정렬 */
+    /* align-items: center; 요소들을 수직으로 가운데 정렬 */
+    margin-bottom: 5px;
+}
+
+li span {
+    margin-right: 20px; 
+}
+
+li button {
+    background-color: #d57ed7;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 7px 20px;
+    cursor: pointer;
+    margin-left: auto; /* 버튼을 오른쪽으로 이동 */
+}
+
+
+#quote {
+    margin-top: 20px;
+    font-style: italic;
+}
+
+#quote span:first-child {
+    margin-top: 20px;
+    font-style: italic;
+    font-weight: bold;
+
+}
+
+#weather {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+img {
+    width: 100%;
+    height: auto;
 }

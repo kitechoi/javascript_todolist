@@ -14,6 +14,18 @@ const TODOS_KEY = "todos"
 // JSON.stringify로 text를 리스트모양의 단순string 으로 바꿈.
 // 그리고서 paint 전에 JSON.parse를 통해 모양만 list인 단순sting를 찐 리스트화.
 
+// 투두가 하나도 없으면 문구 표시하는 함수-------------------------------------------
+function todoLessCheck() {
+    const todoLess = document.querySelector("#todoLess");
+    if (toDos.length === 0) {
+        todoLess.classList.remove("hidden");
+    } 
+    else {
+        todoLess.classList.add("hidden");
+    }
+}
+// -------------------------------------------------------------------
+
 function saveToDos() {
     localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
@@ -21,8 +33,9 @@ function saveToDos() {
 function deleteToDo(event) {
     const li = event.target.parentElement;  // li === 이벤트가 발생된 button의 부모
     toDos = toDos.filter(toDo => toDo.id !== parseInt(li.id));    // 클릭된 id인 애 빼고 새 배열 만든다는 뜻.
-    saveToDos();    //필터 후 이 코드도 추가 해야 함!
+    saveToDos();    // 필터 후 이 코드도 추가 해야 함!
     li.remove();
+    todoLessCheck();    // 투두가 하나도 없으면 문구 표시
     //console.dir(event.target.parentElement.innerText);  // 버튼 중 어떤 버튼이 클릭됐는지 확인
 }
 
@@ -54,7 +67,7 @@ function handleToDoSubmit(event) {
 
     paintToDo(newTodoObj);
     saveToDos();
-
+    todoLessCheck();    // 투두가 하나도 없으면 문구 표시
 }
 
 toDoForm.addEventListener("submit", handleToDoSubmit);
@@ -67,6 +80,7 @@ toDoForm.addEventListener("submit", handleToDoSubmit);
 
 const savedToDos = localStorage.getItem(TODOS_KEY);
 console.log(savedToDos);
+todoLessCheck();
 if (savedToDos !== null) {
     const parsedToDos = JSON.parse(savedToDos);
     toDos = parsedToDos;    // 새로고침시에 배열이 초기화되므로, toDos를 ToDos항목들로 초기화(재할당해야 해서 let형이어야.)
@@ -79,6 +93,13 @@ if (savedToDos !== null) {
     // 위 동작을 아래처럼 한 줄에도 표현 가능. 함수 포함하여.
     //parsedToDos.forEach((listOfItem) => console.log("this is the turn of", listOfItem));
 }
+// if (savedToDos === null || savedToDos === '[]') {
+//     const todoLess = document.querySelector("#todoLess");
+//     todoLess.classList.remove("hidden");
+// }
+
+
+
 
 // filter 쓰는 법----------------------------------------------
 // filter란, 배열을 수정하는 게 아님. 조건에 맞는 아이템만 남기고 그외 아이템은 제외하는 새 배열을 만드는 것.
