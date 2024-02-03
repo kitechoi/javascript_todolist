@@ -18,13 +18,14 @@ body {
     font-family: 'Times New Roman', Times, serif;
     font-size: 100px;
     margin-top: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
+
 
 input[type="text"] {
     width: 30%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
@@ -42,7 +43,6 @@ ul {
 
 li {
     display: flex;
-
     margin-bottom: 5px;
     background-color: rgba(0, 0, 0, 0.3); 
     border-radius: 5px;
@@ -55,7 +55,7 @@ li span {
     padding: 7px 20px;
 }
 
-li button {
+button {
     background-color: rgba(42, 38, 42);
     color: #fff;
     border: none;
@@ -67,7 +67,10 @@ li button {
 
 
 #quote {
-    margin-top: 20px;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%); 
     font-style: italic;
 }
 

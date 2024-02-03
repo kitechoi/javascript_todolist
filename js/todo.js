@@ -45,7 +45,7 @@ function paintToDo(newTodo) {
     const span = document.createElement("span");
     span.innerText = newTodo.text;
     const button = document.createElement("button");
-    button.innerText = "삭제";
+    button.innerText = "✖️";
     button.addEventListener("click", deleteToDo);
     li.appendChild(span);
     li.appendChild(button);
@@ -57,17 +57,24 @@ function paintToDo(newTodo) {
 function handleToDoSubmit(event) {
     event.preventDefault();
     console.log(toDoInput.value);
-    const newTodo = toDoInput.value;
-    toDoInput.value ="";
-    const newTodoObj = {
-        text: newTodo,
-        id: Date.now(),
-    };
-    toDos.push(newTodoObj);    // toDos가 const였어도 값은 추가 가능. 재할당이 금지되는 것임.
+    if (toDos.length < 8){
+        const newTodo = toDoInput.value;
+        toDoInput.value ="";
+        const newTodoObj = {
+            text: newTodo,
+            id: Date.now(),
+        };
+        toDos.push(newTodoObj);    // toDos가 const였어도 값은 추가 가능. 재할당이 금지되는 것임.
+    
+        paintToDo(newTodoObj);
+        saveToDos();
+        todoLessCheck();    // 투두가 하나도 없으면 문구 표시
+    }
+    else {
+        toDoInput.value ="";
+        alert("TODO는 8개가 최대예요");
+    }
 
-    paintToDo(newTodoObj);
-    saveToDos();
-    todoLessCheck();    // 투두가 하나도 없으면 문구 표시
 }
 
 toDoForm.addEventListener("submit", handleToDoSubmit);

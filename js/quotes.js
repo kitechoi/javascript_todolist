@@ -36,8 +36,8 @@ const quotes = [
     author: "John Green",
  },
  {
-    quote: "",
-    author: "",
+    quote: "Do not go where the path may lead, go instead where there is no path and leave a trail.",
+    author: "Ralph Waldo Emerson",
  },
 ]
 
